@@ -1,0 +1,62 @@
+/*
+* @Author: dell
+* @Date:   2017-03-23 10:32:35
+* @Last Modified by:   dell
+* @Last Modified time: 2017-03-23 11:35:36
+*/
+
+.biankuang{
+	width: 402px;
+	height: 52px;
+	border: 1px solid #CDCDCD;
+	/* background: red; */
+	font-size: 15px;
+	line-height: 52px;
+	margin-bottom: 22px;
+	margin: 0 auto;
+}
+.neibiankuang{
+	border: 0;
+	outline: none;
+}
+.biankuang1{
+	width: 402px;
+	height: 52px;
+	border: 1px solid #CDCDCD;
+	/* background: red; */
+	font-size: 15px;
+	line-height: 52px;
+	margin-bottom: 22px;
+}
+.neibiankuang1{
+	border: 0;
+	outline: none;
+}
+.biankuang2{
+	width: 402px;
+	height: 52px;
+	border: 1px solid #CDCDCD;
+	/* background: red; */
+	font-size: 15px;
+	line-height: 52px;
+	margin-bottom: 22px;
+}
+.neibiankuang2{
+	border: 0;
+	outline: none;
+}
+.shenming{
+	font-size: 15px;
+}
+span1{
+	color: #468FFF；
+}
+.zhuce{
+	width: 402px;
+	height: 52px;
+	background: red;
+	font-size: 20px;
+	text-align: center;
+	line-height: 52px;
+	color: #fff;
+}

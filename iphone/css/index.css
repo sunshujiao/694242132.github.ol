@@ -1,0 +1,27 @@
+/*
+* @Author: dell
+* @Date:   2017-03-21 09:26:06
+* @Last Modified by:   dell
+* @Last Modified time: 2017-03-23 10:27:05
+*/
+.box{
+	width: 800px;
+	height: 500px;
+	background: #000;
+
+}
+.box_1{
+	width: 400px;
+	height: 500px;
+	background: red;
+	float: left;
+}
+.box_2{
+	width: 100px;
+	height: 500px;
+	background: blue;
+	float: left;
+}
+.text{
+	overflow: hidden;
+}

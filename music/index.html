@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <title>Document</title>
+    <script src="js/audio.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+            list-style: none;
+        }
+        body,html{
+            width:100%;
+            height:100%;
+            background: url("img/1.jpg");
+            background-size:cover;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        .top{
+            width:600px;
+            height:auto;
+            margin:10px auto;
+        }
+        .top h3{
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+        .top h4{
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+        .top ul{
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+            height:440px;
+            overflow: hidden;
+        }
+        .top ul li{
+            margin-bottom: 12px;
+        }
+        .hot{
+            color:red;
+        }
+        .buttom{
+            width:100%;
+            height:100px;
+            background: rgba(0,0,0,0.6);
+        }
+        .buttom .footer{
+            width:1000px;
+            height:100%;
+            margin: auto;
+        }
+        .buttom .left{
+            width:200px;
+            height:100%;
+            /*background: blue;*/
+            position: relative;
+            float: left;
+        }
+        .buttom .left i{
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 100px;
+        }
+        .buttom .left i:nth-child(1){
+            font-size:35px;
+            position: absolute;
+            left:10px;
+        }
+        .buttom .left i:nth-child(2){
+            font-size:50px;
+            position: absolute;
+            left:73px;
+            /*top:3px;*/
+        }
+        .buttom .left i:nth-child(3){
+            font-size:40px;
+            position: absolute;
+            right: 10px;
+            top:3px;
+        }
+        .buttom .center{
+            width:600px;
+            height:100%;
+            float: left;
+            /*background: red;*/
+        }
+        .buttom .center .imgbox{
+            width:80px;
+            height:80px;
+            margin-top: 8px;
+            margin-left: 10px;
+            margin-right:10px;
+            transition:40s linear;
+            display: block;
+            float: left;
+        }
+        .buttom .center .imgbox img{
+            width:100%;
+            height:100%;
+            border-radius: 50%;
+        }
+        body:hover .imgbox{
+            transform: rotate(20rad);
+        }
+        .buttom .center .tbox{
+            display: block;
+            width:500px;
+            height:40px;
+            /*background: green;*/
+            float: right;
+        }
+        .buttom .center .tbox .xbox{
+            display: inline-block;
+            width:150px;
+            height:30px;
+            /*background: red;*/
+            margin-top:10px;
+            font-size:20px;
+        }
+        .buttom .center .tbox .xbox .gq{
+            display: inline-block;
+            font-size:20px;
+            line-height: 30px;
+        }
+        .buttom .center .tbox .xbox .yc{
+            display: inline-block;
+            font-size:20px;
+            line-height: 30px;
+        }
+        .buttom .center .tbox .time{
+            float: right;
+            margin-right:10px;
+            margin-top:10px;
+            font-size:20px;
+        }
+        .buttom .center .jindu{
+            width:500px;
+            height:60px;
+            /*background: orange;*/
+            float: left;
+        }
+        .buttom .center .jindu .jindu1{
+            margin-top:25px;
+            margin-left:40px;
+            width:400px;
+            height:10px;
+            background: yellow;
+            border-radius: 5px;
+        }
+        .buttom .center .jindu .jindu1 .jindu2{
+            margin-top:25px;
+            /*margin-left:40px;*/
+            width:400px;
+            height:10px;
+            background: #741608;
+            border-radius: 5px;
+        }
+        .buttom .right{
+            width:200px;
+            height:100%;
+            float: right;
+            position: relative;
+        }
+        .buttom .right i{
+            position: absolute;
+            color: #ffffff;
+            line-height: 100px;
+            font-size:35px;
+            left:10px;
+        }
+        .dar{
+        margin-left:30px;
+        width: 80%;
+        position: absolute;
+        background: red;
+        top: 0;
+    }
+    .dar>div.first{
+        background: #b0b0b0;
+        position: absolute;
+        top: 40px;
+        left: 30px;
+        width: 80%;
+        height: 10px;
+        border-radius: 12px;
+    }
+    .dar>div.first>div.second{
+        background: #e0446b;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        border-radius: 12px;
+    }
+    .dar>div.first>div.yuan{
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        position: absolute;
+        top:0;
+        left:95%;
+        border-radius: 50%;
+    }
+    </style>
+</head>
+<body>
+<audio src=""></audio>
+    <div class="top">
+        <h3 class="song"></h3>
+        <h4 class="name"></h4>
+        <ul class="lyrics">
+            <!--<li>阴天</li>-->
+            <!--<li>莫文蔚</li>-->
+            <!--<li>作品李</li>-->
+            <!--<li>Amin</li>-->
+            <!--<li>李宗盛</li>-->
+            <!--<li>李宗盛</li>-->
+            <!--<li>阴天在不开灯的房间</li>-->
+            <!--<li>当所有思绪都一点一点沉淀</li>-->
+            <!--<li>爱情究竟是精神鸦片</li>-->
+            <!--<li>还是世纪末的无聊消遣</li>-->
+            <!--<li>香烟氲成一摊光圈</li>-->
+        </ul>
+    </div>
+    <div class="buttom">
+        <div class="footer">
+            <div class="left">
+                <i class="iconfont icon-iconfont34 qian"></i>
+                <i class="iconfont icon-bigbofang zhong"></i>
+                <i class="iconfont icon-next hou"></i>
+            </div>
+            <div class="center">
+                <div class="imgbox">
+                    <img src="img/mww.jpg" alt="">
+                </div>
+                <div class="tbox">
+                    <span class="xbox">
+                        <span class="gq">123</span>
+                        <span class="yc">123</span>
+                    </span>
+                    <span class="time">
+                        <span class="ctime">00:00</span>
+                        /
+                        <span class="dtime">04:23</span>
+                    </span>
+                </div>
+                <div class="jindu">
+                    <div class="jindu1">
+                        <div class="jindu2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <i class="iconfont icon-yinliang yinliang"></i>
+                <div class=dar>
+                <div class=first>
+                    <div class=second></div>
+                    <div class=yuan></div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="js/yinyue.js"></script>
+<script src="js/aa.js"></script>
+<script src="js/audio.js"></script>

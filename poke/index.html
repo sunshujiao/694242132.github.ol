@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.min.js"></script>
+</head>
+<style>
+    .table{
+        width:700px;
+        height: 600px;
+        margin: 20px auto;
+        position: relative;
+        background-image:url("img/bigbg.jpg") ;
+        background-repeat: no-repeat;
+    }
+    .table .poke{
+        margin-top: 10px;
+        width:90px;
+        height:130px;
+        /*border:3px solid rgba(0,0,0,0);*/
+        position: absolute;
+        left:300px;
+        top:0;
+        opacity: 0;
+        background-size: 90px 130px;
+    }
+    .active{
+        border:3px solid #0086b3;
+        box-sizing: border-box;
+    }
+    [class^=move]{
+        width:80px;
+        height:30px;
+        border-radius: 3px;
+        background: #00C8A5;
+        position: absolute;
+        left:310px;
+        top:480px;
+        font-size: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+    [class=moveR]{
+        top:540px;
+    }
+</style>
+<body>
+    <div class="table">
+        <div class="moveL"> < </div>
+        <div class="moveR"> >  </div>
+    </div>
+</body>
+</html>
+<script>
+    $(function(){
+       //先创建一个新的数组来存牌
+        let poke=[]
+        //定义牌的花色跟数字 数组
+        let color=['c','d','h','s'];
+        let biao={ };
+        let moveL=$('.moveL')
+        let moveR=$('.moveR')
+//        let dir=
+        //poke=[{huase:c,shuzi:9},{huase:s,shuzi:5}]
+        //biao={c_9:true,s_5:true}
+        //产生
+        while(poke.length<52){
+            let huase =color[Math.floor(Math.random()*4)]
+            let shuzi=Math.floor(Math.random()*13+1)
+            if(!biao[huase + '_' + shuzi]){
+                biao[huase + '_' + shuzi]=true;
+                poke.push({huase,shuzi})
+            }
+        }
+        //放牌  创建一个li 放到ul里 设置css attr id valuedisplay: block;
+        let index=0;
+        for(let i=0;i<7;i++){
+            for(let j=0;j<=i;j++){
+                let item=poke[index]
+                index++;
+                let src="url(img/扑克/" + item.huase + item.shuzi + ".jpg)"
+                $('<div>').addClass('poke')
+                    .attr('id',i+'_'+j)
+                    .data('num',item.shuzi)
+                    .css('backgroundImage',src)
+//                    .html(`${item.huase}---${item.shuzi}`)
+                    .delay(50*index)
+                    .animate({
+                        opacity:1,
+                        left:300-i*50+100*j,
+                        top:50*i
+                    })
+                    .appendTo('.table')
+            }
+        }
+
+        for(;index<poke.length;index++){
+            let item=poke[index]
+            let src="url(img/扑克/"+item.huase+item.shuzi+".jpg)"
+            $('<div>').addClass('poke zuo')
+                .css('backgroundImage',src)
+                //                    .html(`${item.huase}---${item.shuzi}`)
+                .data('num',item.shuzi)
+                .delay(index*30)
+                .animate({
+                    left:100,
+                    top:450,
+                    opacity:1
+                })
+                .appendTo('.table')
+        }
+        //点击选牌  判断遮挡
+        let first=null;
+
+        $('.poke').click(function(){
+            let coords=$(this).prop('id').split('_');
+            // x_y     x+1_y    x+1+y+1
+            //"1_1"    2_1       2_2
+            //"1","1"
+            //1+1    1+1     $#1_1
+            //$('#2_2')
+            let ele=$(`#${parseInt(coords[0])+1}_${parseInt(coords[1])+1}`)
+            let ele1=$(`#${parseInt(coords[0])+1}_${parseInt(coords[1])}`)
+            if(ele1.length==1&&ele.length==1){
+                return;
+            }
+            $(this).toggleClass('active');
+            if($(this).hasClass('active')){
+                $(this).animate({top:'-=20'})
+            }else{
+                $(this).animate({top:'+=20'})
+            }
+
+            //判断两张牌是否是13
+            if(!first){
+                first=this
+                let sum=$(first).data('num')
+                if(sum==13){
+                    $('.active').animate({top:0,left:600},function() {
+                        $(this).remove()
+                    })
+                    first=null;
+                }
+            }else{
+                let sum=$(first).data('num')+$(this).data('num');
+                if(sum==13){
+                    $('.active').animate({left:600,top:0}).queue(function(){
+                        $(this).remove()
+                    })
+                }else{
+                    $('.active').animate({top:'+=20'}).removeClass('active');
+                }
+                first=null;
+            }
+        })
+        //左右点击
+        let z=1
+        moveR.on('click',function(){
+            z++
+            $('.zuo:last')
+                .removeClass('zuo')
+                .addClass('you')
+                .css('zIndex',z)
+                .animate({left:'+=400'})
+        })
+        moveL.on('click',function(){
+            let you=$('.you')
+            if(you.length==0){
+                return
+            }
+            for(let i=you.length-1;i>=0;i--){
+                $(you[i]).delay(100*i)
+                    .animate({left:'-=400'},function(){
+                       $(this).css('zIndex',0)
+                    })
+                    .addClass('zuo')
+                    .removeClass('you')
+            }
+        })
+    })
+</script>
